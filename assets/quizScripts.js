@@ -84,8 +84,28 @@ function getQuestions() {
   }
 }
 
-choiceList.addEventListener("click",checkAnswer);
+choiceList.addEventListener("click", checkAnswer);
 
+// check answers. If they're are wrong then points will be deducted
 function checkAnswer(event) {
-  var clicked=event.target;
+  var clicked = event.target;
+
+  if (!clicked.value !== quizList[questionCounter].answer) {
+    timeLeft -= 10;
+
+    if (timeLeft < 0) {
+      time = 0;
+    }
+    timeSpan.innerText = timeLeft;
+  }
+
+  questionCounter++;
+
+  if (timeLeft <= 0 || questionCounter === quizList.length) {
+    quizCompleted();
+  } else {
+    getQuestions();
+  }
 }
+
+function quizCompleted() {}
