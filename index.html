@@ -10,20 +10,39 @@
 <body>
   <header>
     <h1>Welcome to the Quiz!</h1>
-    <button type="submit">Start</button>
+    <button type="submit" id="start-button">Start</button>
   </header>
   <main>
-    <section class="wrapper">
-      <article id="card">
+    <section class="wrapper hidden" id="card">
+      <article  id="quiz">
         <h3>Question</h3>
-        <button type="submit">Submit</button>
+        <h4 id="question">What is the ans. to this questions</h4>
+        <ul id="options">
+          <li>
+            <input type="radio" name="answer" id="a" class="answer">
+            <label for="a" id="a_text">Answer</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="b" class="answer">
+            <label for="b" id="b_text">Answer</label>
+          </li>
+          <li>
+            <input type="radio" name="answer" id="c" class="answer">
+            <label for="c" id="c_text">Answer</label>
+          </li>
+  
+        </ul>
+        <button id="submit">Submit</button>
       </article>
-      <article>
+
+      <article id="timer">
         <h3>Timer</h3>
-        <p><span>0</span> seconds left</p>
+        <p><span id="timer-count">0</span> seconds left</p>
       </article>
     </section>
   </main>
+
+  <script src="./assets/script.js"></script>
   
 </body>
 </html>
