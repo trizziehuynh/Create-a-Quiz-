@@ -24,6 +24,9 @@ THEN I can save my initials and my score
 
 ## URL Links
 
-The following animation demonstrates the application functionality:
 
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
+![This is the screenshot of the application](./assets/images/Application%20Screenshot.png)
+
+[The URL of the functional, deployed application](https://trizziehuynh.github.io/Create-a-Quiz-/)
+
+[The URL of github](https://github.com/trizziehuynh/Create-a-Quiz-)
