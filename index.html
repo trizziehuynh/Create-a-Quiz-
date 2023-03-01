@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/style.css">
-  <title>HTML Quiz</title>
+  <title>Coding Quiz</title>
 </head>
 <body>
   <header>
@@ -15,7 +15,7 @@
   <main>
     <section class="wrapper hidden" id="card">
 
-      <article  id="questions" class="hide">
+      <article  id="questions" >
           <h3 id="question">What is the ans. to this question</h3>
           <div id="options" class="choices">Ans.</div>
       </article>
@@ -24,6 +24,15 @@
         <h3>Timer</h3>
         <p><span id="timer-count"></span> seconds left</p>
       </article>
+
+      <div id="end-quiz" class="hide">
+      <h2>All done!</h2>
+      <p>Your final score is <span id="final-score"></span>.</p>
+      <p>
+        Enter initials: <input type="text" id="initials" max="3" />
+        <button id="submitName">Submit</button>
+      </p>
+      </div>
 
     </section>
   </main>

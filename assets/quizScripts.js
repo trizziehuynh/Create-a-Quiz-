@@ -38,10 +38,13 @@ var questions = document.getElementById("questions");
 var timeSpan = document.getElementById("timer-count");
 var question = document.getElementById("question");
 var choiceList = document.getElementById("options");
+var initials = document.getElementById("initials");
 
+var timer;
 var currentQuest;
-var timeLeft = 101;
+var timeLeft = 60;
 var questionCounter = 0;
+var score = quizList.length;
 
 startBtn.addEventListener("click", getStarted);
 
@@ -55,12 +58,14 @@ function getStarted() {
 }
 
 function setTime() {
-  var timer = setInterval(() => {
+  timer = setInterval(() => {
     timeLeft--;
     timeSpan.innerText = timeLeft;
 
     if (timeLeft === 0) {
       clearInterval(timer);
+      score = 0;
+      quizCompleted();
     }
   }, 1000);
 }
@@ -68,6 +73,9 @@ function setTime() {
 function getQuestions() {
   currentQuest = quizList[questionCounter];
   question.innerText = currentQuest.title;
+
+  //clear the previous answers
+  choiceList.innerHTML = "";
 
   // to active the options when being clicked.
   for (var i = 0; i < currentQuest.options.length; i++) {
@@ -90,8 +98,13 @@ choiceList.addEventListener("click", checkAnswer);
 function checkAnswer(event) {
   var clicked = event.target;
 
-  if (!clicked.value !== quizList[questionCounter].answer) {
+  if (clicked.value !== quizList[questionCounter].answer) {
     timeLeft -= 10;
+    score--;
+
+    if (score < 0) {
+      score = 0;
+    }
 
     if (timeLeft < 0) {
       time = 0;
@@ -108,4 +121,24 @@ function checkAnswer(event) {
   }
 }
 
-function quizCompleted() {}
+function quizCompleted() {
+  clearInterval(timer);
+
+  document.getElementById("end-quiz").classList.remove("hide");
+
+  questions.setAttribute("class", "hide");
+
+  var finalScore = document.getElementById("final-score");
+  finalScore.textContent = score;
+}
+
+//get the intials and store in the localstorage.
+// function saveInitials(){
+
+//   var getInitials=initials.value.trim();
+
+//   if(getInitials!==""){
+//     var highScore
+//   }
+
+// }
